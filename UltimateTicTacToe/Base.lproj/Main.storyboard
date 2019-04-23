@@ -92,6 +92,9 @@
                                         <rect key="frame" x="364.5" y="0.0" width="295" height="651"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="One Device"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="show" id="2Um-KH-qzg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRf-Ae-aSf">
                                         <rect key="frame" x="351.5" y="651" width="321" height="651"/>
@@ -136,7 +139,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-bY-hZm">
                                 <rect key="frame" x="141" y="351" width="798" height="642"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">In Ultimate Tic-Tac-Toe, you play on a 3x3 grid of 3x3 grids.  The objective is to get three-in-a-row on the big board.  To claim a space on the big board, you must win the tic-tac-toe game in that space.  Additionally, the position of the previous move determines the subboard on which the next move has to be made.</mutableString>
+                                <string key="text">In Ultimate Tic-Tac-Toe, you play on a 3x3 grid of 3x3 grids.  The objective is to get three-in-a-row on the big board.  To claim a space on the big board, you must win the tic-tac-toe game in that space.  Additionally, the position of the previous move determines the subboard on which the next move has to be made.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
