@@ -39,6 +39,9 @@
                                         <rect key="frame" x="458" y="1030" width="108" height="272"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="How to Play"/>
+                                        <connections>
+                                            <segue destination="qUB-iY-rtF" kind="show" id="3fI-l2-4bx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -114,6 +117,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Cs-ET-uq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="523" y="32"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gBh-lm-xDn">
+            <objects>
+                <viewController id="qUB-iY-rtF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nb9-Ih-oDm">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kf-oj-0js">
+                                <rect key="frame" x="249" y="111" width="582" height="137"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="114"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-bY-hZm">
+                                <rect key="frame" x="141" y="351" width="798" height="642"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <mutableString key="text">In Ultimate Tic-Tac-Toe, you play on a 3x3 grid of 3x3 grids.  The objective is to get three-in-a-row on the big board.  To claim a space on the big board, you must win the tic-tac-toe game in that space.  Additionally, the position of the previous move determines the subboard on which the next move has to be made.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3ao-ua-bf1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TAE-pb-L2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-628.125" y="750.65885797950216"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
