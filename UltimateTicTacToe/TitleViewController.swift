@@ -11,7 +11,13 @@ import UIKit
 class TitleViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+       super.viewDidLoad()
+        let imageName = "X.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: startSpot(), y: 0, width: 100, height: 200)
+        view.addSubview(imageView)
+        
 
         // Do any additional setup after loading the view.
     }
@@ -20,8 +26,14 @@ class TitleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // width is 1024
 
+    func startSpot() -> Int
+    {
+        return Int(arc4random_uniform(UInt32(1024)))
+    }
+    
+    
     /*
     // MARK: - Navigation
 
