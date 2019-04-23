@@ -18,6 +18,7 @@
 		094D3DC522678BBF00674B9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094D3DC322678BBF00674B9A /* LaunchScreen.storyboard */; };
 		094D3DD022678BC000674B9A /* UltimateTicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D3DCF22678BC000674B9A /* UltimateTicTacToeTests.swift */; };
 		094D3DDB22678BC000674B9A /* UltimateTicTacToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D3DDA22678BC000674B9A /* UltimateTicTacToeUITests.swift */; };
+		3A5A7FB3226F702200CC7B6A /* BigBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A7FB2226F702200CC7B6A /* BigBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		094D3DD622678BC000674B9A /* UltimateTicTacToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltimateTicTacToeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		094D3DDA22678BC000674B9A /* UltimateTicTacToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateTicTacToeUITests.swift; sourceTree = "<group>"; };
 		094D3DDC22678BC000674B9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5A7FB2226F702200CC7B6A /* BigBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				094D3DC322678BBF00674B9A /* LaunchScreen.storyboard */,
 				094D3DC622678BC000674B9A /* Info.plist */,
 				09442C01226794AC0073D617 /* Board.swift */,
+				3A5A7FB2226F702200CC7B6A /* BigBoard.swift */,
 			);
 			path = UltimateTicTacToe;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				094D3DBB22678BBB00674B9A /* GameScene.swift in Sources */,
 				094D3DBD22678BBB00674B9A /* GameViewController.swift in Sources */,
+				3A5A7FB3226F702200CC7B6A /* BigBoard.swift in Sources */,
 				09442C02226794AC0073D617 /* Board.swift in Sources */,
 				094D3DB522678BBA00674B9A /* AppDelegate.swift in Sources */,
 			);
