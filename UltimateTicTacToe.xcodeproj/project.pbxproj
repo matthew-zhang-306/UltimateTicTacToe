@@ -112,7 +112,9 @@
 				094D3DB822678BBB00674B9A /* Actions.sks */,
 				094D3DBA22678BBB00674B9A /* GameScene.swift */,
 				094D3DBC22678BBB00674B9A /* GameViewController.swift */,
+				B0D8773622678E8E00A73E01 /* TitleViewController.swift */,
 				094D3DBE22678BBB00674B9A /* Main.storyboard */,
+				09DC8DB9226F73F3006AE1C9 /* HowToPlayViewController.swift */,
 				094D3DC122678BBF00674B9A /* Assets.xcassets */,
 				094D3DC322678BBF00674B9A /* LaunchScreen.storyboard */,
 				094D3DC622678BC000674B9A /* Info.plist */,
@@ -274,10 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				094D3DBB22678BBB00674B9A /* GameScene.swift in Sources */,
+				B0D8773722678E8E00A73E01 /* TitleViewController.swift in Sources */,
 				094D3DBD22678BBB00674B9A /* GameViewController.swift in Sources */,
 				3A5A7FB3226F702200CC7B6A /* BigBoard.swift in Sources */,
 				09442C02226794AC0073D617 /* Board.swift in Sources */,
 				094D3DB522678BBA00674B9A /* AppDelegate.swift in Sources */,
+				09DC8DBA226F73F3006AE1C9 /* HowToPlayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
