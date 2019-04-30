@@ -14,9 +14,14 @@ import GameplayKit
 class GameViewController: UIViewController
 {
     var board = Board()
+    var bigBoard = BigBoard()
     
+    
+    let screenSize: CGRect = UIScreen.main.bounds
+    var screenWidth: Int!
+    var screenHeight: Int!
     var buttons: [[UIButton]]!
-
+    
     
     var currentPlayer = "X"
     
@@ -42,8 +47,20 @@ class GameViewController: UIViewController
             view.showsNodeCount = true
         }
         
-        buttons = makeButtonArray()
-        smallBoardDraw(board: board)
+        screenWidth = Int(screenSize.width)
+        screenHeight = Int(screenSize.height)
+        
+        var smallBoardXLocations = [0, screenWidth/3, screenWidth/3 * 2]
+        var smallBoardYLocations = [0, screenHeight/3, screenHeight/3 * 2]
+        
+        for var row in 0...2
+        {
+            for var col in 0...2
+            {
+                buttons = makeButtonArray(startX: smallBoardXLocations[col], startY: smallBoardYLocations[row])
+            }
+        }
+        smallBoardDraw(buttons: buttons)
         
         print(buttons)
     }
@@ -53,7 +70,7 @@ class GameViewController: UIViewController
         
     }
     
-    func smallBoardDraw(board: Board)
+    func smallBoardDraw(buttons: [[UIButton]])
     {
         //For each button in buttons or each button in grid, add the buttons to the subview
         for buttonArray in buttons
@@ -61,46 +78,20 @@ class GameViewController: UIViewController
             for button in buttonArray
             {
                 self.view.addSubview(button)
-                
             }
 
         }
-        
-        //MOVED TO MAKE BUTTON ARRAY
-//        var buttonLength = 50
-//        var col = 0
-//        var row = 0
-//        var x = 0
-//        var y = 0
-//        while(row < board.grid.count)
-//        {
-//            while(col < board.grid[row].count)
-//            {
-//                let button = UIButton(frame: CGRect(x: x, y: y, width: buttonLength, height: buttonLength))
-//                button.backgroundColor = .green
-//                button.setTitle(board.grid[row][col], for: .normal)
-//                button.setTitleColor(.black, for: .normal)
-//                button.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
-//                self.view.addSubview(button)
-//
-//                x += buttonLength + 1
-//                col += 1
-//            }
-//            x = 0
-//            y += buttonLength + 1
-//            col = 0
-//            row += 1
-//        }
     }
     
-    func makeButtonArray() -> [[UIButton]]
+    //Makes 3x3 button array
+    func makeButtonArray(startX x: Int, startY y: Int) -> [[UIButton]]
     {
         var buttons = [[UIButton]]()
         let buttonLength = 50
         var col = 0
         var row = 0
-        var x = 0
-        var y = 0
+        var x = x
+        var y = y
         while(row < board.grid.count)
         {
             var buttonRow = [UIButton]()
