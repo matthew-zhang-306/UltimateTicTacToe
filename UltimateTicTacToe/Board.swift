@@ -14,14 +14,15 @@ class Board
     var grid: [[String]]
     var winner: String
     
-    var isFull: Bool
-    var numTimesPlayed: Int = 0
+    var numTimesPlayed: Int
+    var isFull: Bool { return numTimesPlayed >= 9 }
     
     init()
     {
         grid = [[" "," "," "],[" "," "," "],[" "," "," "]]
         winner = " "
-        isFull = false
+        
+        numTimesPlayed = 0
     }
     
     func play(_ player: String, at pos: CGPoint)
@@ -35,53 +36,41 @@ class Board
         grid[y][x] = player
         
         // check for winner
-        var col = 0;
-        while (col < 3) {
-            if (grid[col][x] != player) {
+        for var col in 0...2 {
+            if grid[col][x] != player {
                 break
             }
-            col += 1
-            
-            if (col == 3) {
+            if col == 2 {
                 setWinner(to: player)
             }
         }
         
-        var row = 0;
-        while (row < 3) {
-            if (grid[y][row] != player) {
+        for var row in 0...2 {
+            if grid[y][row] != player {
                 break
             }
-            row += 1
-            
-            if (row == 3) {
+            if row == 2 {
                 setWinner(to: player)
             }
         }
         
-        if (y == x) {
-            row = 0;
-            while (row < 3) {
-                if (grid[row][row] != player) {
+        if y == x {
+            for var row in 0...2 {
+                if grid[row][row] != player {
                     break
                 }
-                row += 1
-                
-                if (row == 3) {
+                if row == 2 {
                     setWinner(to: player)
                 }
             }
         }
         
-        if (y == 2 - x) {
-            row = 0;
-            while (row < 3) {
-                if (grid[row][2 - row] != player) {
+        if y == 2 - x {
+            for var row in 0...2 {
+                if grid[row][2 - row] != player {
                     break
                 }
-                row += 1
-                
-                if (row == 3) {
+                if row == 2 {
                     setWinner(to: player)
                 }
             }
@@ -89,11 +78,6 @@ class Board
         
         
         numTimesPlayed += 1
-        if (numTimesPlayed == 9) {
-            isFull = true
-        }
-        
-        
     }
     
     func setWinner(to player: String) {
