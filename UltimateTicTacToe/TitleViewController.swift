@@ -12,11 +12,11 @@ class TitleViewController: UIViewController {
 
     override func viewDidLoad() {
        super.viewDidLoad()
-        let imageName = "X.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        imageView.frame = CGRect(x: startSpot(), y: 0, width: 100, height: 200)
-        view.addSubview(imageView)
+        //let imageName = "X.png"
+        //let image = UIImage(named: imageName)
+        //let imageView = UIImageView(image: image!)
+        //imageView.frame = CGRect(x: startSpot(), y: 0, width: 100, height: 200)
+        //view.addSubview(imageView)
         
 
         // Do any additional setup after loading the view.
