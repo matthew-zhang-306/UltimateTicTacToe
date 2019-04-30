@@ -48,6 +48,7 @@ class GameViewController: UIViewController
         
         buttons = makeButtonArray()
         smallBoardDraw(buttons: buttons)
+        enableInitialBoard()
         print(buttons)
     }
 
@@ -112,7 +113,8 @@ class GameViewController: UIViewController
         // Set activation of buttons
         for var row in 0...8 {
             for var col in 0...8 {
-                if cellX == col / 3 && cellY == row / 3 {
+                if cellX == col / 3 && cellY == row / 3
+                {
                     buttons[row][col].isEnabled = true
                     updateColorOfButton(buttons[row][col])
                 }
@@ -149,6 +151,21 @@ class GameViewController: UIViewController
             }
         }
         return CGPoint(x: -1, y: -1)
+    }
+    
+    func enableInitialBoard()
+    {
+        for var row in 0...8
+        {
+            for var col in 0...8
+            {
+                if col > 2 || row > 2
+                {
+                    buttons[row][col].isEnabled = false
+                    updateColorOfButton(buttons[row][col])
+                }
+            }
+        }
     }
     
     func updateColorOfButton(_ button: UIButton) {
