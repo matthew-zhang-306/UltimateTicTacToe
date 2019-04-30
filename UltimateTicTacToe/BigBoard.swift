@@ -19,6 +19,9 @@ class BigBoard
     
     var selectedBoard: CGPoint
     
+    var previousPlayBoardPosition: CGPoint?
+    var previousPlayCellPosition: CGPoint?
+    
     init()
     {
         grid = [[Board(),Board(),Board()],[Board(),Board(),Board()],[Board(),Board(),Board()]]
@@ -29,20 +32,22 @@ class BigBoard
         selectedBoard = CGPoint(x: 0, y: 0)
     }
     
-    func play(_ player: String, at pos: CGPoint) {
+    func play(_ player: String, at pos: CGPoint) -> Bool {
         var x = Int(pos.x)
         var y = Int(pos.y)
         
-        guard x >= 0 && x < 9 && y >= 0 && y < 9 else { return; }
+        guard x >= 0 && x < 9 && y >= 0 && y < 9 else { return false }
         
         let boardX = x % 3
         let boardY = y % 3
         x = x / 3
         y = y / 3
         
-        guard grid[y][x].grid[boardY][boardX] == " " else { return }
+        guard grid[y][x].grid[boardY][boardX] == " " else { return false }
         
-        grid[y][x].play(player, at: CGPoint(x: boardX, y: boardY))
+        previousPlayBoardPosition = CGPoint(x: x, y: y)
+        previousPlayCellPosition = CGPoint(x: boardX, y: boardY)
+        guard grid[y][x].play(player, at: previousPlayCellPosition ?? CGPoint(x: -1, y: -1)) else { return false }
         
         // check for winner
         for var col in 0...2 {
@@ -99,6 +104,7 @@ class BigBoard
             selectedBoard = CGPoint(x: boardX, y: boardY)
         }
         
+        return true
     }
     
     func setWinner(to player: String) {
