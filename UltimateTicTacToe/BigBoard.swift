@@ -19,6 +19,9 @@ class BigBoard
     
     var selectedBoard: CGPoint
     
+    var previousPlayBoardPosition: CGPoint?
+    var previousPlayCellPosition: CGPoint?
+    
     init()
     {
         grid = [[Board(),Board(),Board()],[Board(),Board(),Board()],[Board(),Board(),Board()]]
@@ -42,7 +45,9 @@ class BigBoard
         
         guard grid[y][x].grid[boardY][boardX] == " " else { return }
         
-        grid[y][x].play(player, at: CGPoint(x: boardX, y: boardY))
+        previousPlayBoardPosition = CGPoint(x: x, y: y)
+        previousPlayCellPosition = CGPoint(x: boardX, y: boardY)
+        grid[y][x].play(player, at: previousPlayCellPosition ?? CGPoint(x: -1, y: -1))
         
         // check for winner
         for var col in 0...2 {

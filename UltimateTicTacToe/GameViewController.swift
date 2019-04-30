@@ -48,20 +48,9 @@ class GameViewController: UIViewController
         }
         
         screenWidth = Int(screenSize.width)
-        screenHeight = Int(screenSize.height)
         
-        var smallBoardXLocations = [0, screenWidth/3, screenWidth/3 * 2]
-        var smallBoardYLocations = [0, screenHeight/3, screenHeight/3 * 2]
-        
-        for var row in 0...2
-        {
-            for var col in 0...2
-            {
-                buttons = makeButtonArray(startX: smallBoardXLocations[col], startY: smallBoardYLocations[row])
-            }
-        }
+        buttons = makeButtonArray()
         smallBoardDraw(buttons: buttons)
-        
         print(buttons)
     }
 
@@ -83,35 +72,26 @@ class GameViewController: UIViewController
         }
     }
     
-    //Makes 3x3 button array
-    func makeButtonArray(startX x: Int, startY y: Int) -> [[UIButton]]
+    //Makes 9x9 button array
+    func makeButtonArray() -> [[UIButton]]
     {
         var buttons = [[UIButton]]()
-        let buttonLength = 50
-        var col = 0
-        var row = 0
-        var x = x
-        var y = y
-        while(row < board.grid.count)
+        let buttonLength = screenWidth / 9
+        let padding = 2
+        
+        for var row in 0...8
         {
             var buttonRow = [UIButton]()
-            while(col < board.grid[row].count)
+            for var col in 0...8
             {
-                let button = UIButton(frame: CGRect(x: x, y: y, width: buttonLength, height: buttonLength))
+                let button = UIButton(frame: CGRect(x: col * buttonLength + padding, y: row * buttonLength + padding, width: buttonLength - 2 * padding, height: buttonLength - 2 * padding))
                 button.backgroundColor = .green
-                button.setTitle(board.grid[row][col], for: .normal)
+                button.setTitle(" ", for: .normal)
                 button.setTitleColor(.black, for: .normal)
                 button.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
                 buttonRow.append(button)
-    
-                x += buttonLength + 1
-                col += 1
             }
             buttons.append(buttonRow)
-            x = 0
-            y += buttonLength + 1
-            col = 0
-            row += 1
         }
         return buttons
     }
@@ -121,7 +101,15 @@ class GameViewController: UIViewController
         sender.backgroundColor = .red
         sender.setTitle(currentPlayer, for: .normal)
         
-        if(currentPlayer == "X")
+        var pos: CGPoint = findButton(sender)
+        print("button tapped \(pos)")
+        
+        bigBoard.play(currentPlayer, at: pos)
+        print(bigBoard.previousPlayBoardPosition)
+        print(bigBoard.previousPlayCellPosition)
+        
+        // Switch players
+        if currentPlayer == "X"
         {
             currentPlayer = "O"
         }
@@ -129,15 +117,12 @@ class GameViewController: UIViewController
         {
             currentPlayer = "X"
         }
-        
-        var pos: CGPoint = findButton(sender)
-        print("button tapped \(pos)")
     }
     
     func findButton(_ sender: UIButton) -> CGPoint {
-        for var y in 0...2 {
-            for var x in 0...2 {
-                if (buttons[y][x] == sender) {
+        for var y in 0...8 {
+            for var x in 0...8 {
+                if buttons[y][x] == sender {
                     return CGPoint(x: x, y: y)
                 }
             }
