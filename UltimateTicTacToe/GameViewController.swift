@@ -119,7 +119,7 @@ class GameViewController: UIViewController
                     updateColorOfButton(buttons[row][col])
                 }
                 else {
-                    buttons[row][col].isEnabled = bigBoard.grid[cellY][cellX].isFull
+                    buttons[row][col].isEnabled = bigBoard.grid[cellY][cellX].isFull || bigBoard.grid[cellY][cellX].winner != " "
                     updateColorOfButton(buttons[row][col])
                 }
             }
@@ -134,12 +134,6 @@ class GameViewController: UIViewController
         {
             currentPlayer = "X"
         }
-        
-        var pos: CGPoint = findButton(sender)
-        print("button tapped \(pos)")
-        
-        // Prevents button from changing once pressed
-        sender.isEnabled = false
     }
     
     func findButton(_ sender: UIButton) -> CGPoint {
