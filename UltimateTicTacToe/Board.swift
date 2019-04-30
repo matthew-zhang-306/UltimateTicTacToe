@@ -25,13 +25,13 @@ class Board
         numTimesPlayed = 0
     }
     
-    func play(_ player: String, at pos: CGPoint)
+    func play(_ player: String, at pos: CGPoint) -> Bool
     {
         let x = Int(pos.x)
         let y = Int(pos.y)
         
-        guard x >= 0 && x < 3 && y >= 0 && y < 3 else { return }
-        guard grid[y][x] == " " else { return }
+        guard x >= 0 && x < 3 && y >= 0 && y < 3 else { return false }
+        guard grid[y][x] == " " else { return false }
         
         grid[y][x] = player
         
@@ -78,6 +78,8 @@ class Board
         
         
         numTimesPlayed += 1
+        
+        return true
     }
     
     func setWinner(to player: String) {

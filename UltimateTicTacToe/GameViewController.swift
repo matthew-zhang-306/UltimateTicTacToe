@@ -98,15 +98,33 @@ class GameViewController: UIViewController
     
     @IBAction func buttonTest(_ sender: UIButton)
     {
+        var pos: CGPoint = findButton(sender)
+        
+        guard bigBoard.play(currentPlayer, at: pos) else { return }
+        guard let previousPlayBoardPosition = bigBoard.previousPlayBoardPosition else { return }
+        guard let previousPlayCellPosition = bigBoard.previousPlayCellPosition else { return }
+        let boardX = Int(previousPlayBoardPosition.x)
+        let boardY = Int(previousPlayBoardPosition.y)
+        let cellX = Int(previousPlayCellPosition.x)
+        let cellY = Int(previousPlayCellPosition.y)
+        
+        // Set button state
         sender.backgroundColor = .red
         sender.setTitle(currentPlayer, for: .normal)
         
-        var pos: CGPoint = findButton(sender)
-        print("button tapped \(pos)")
-        
-        bigBoard.play(currentPlayer, at: pos)
-        print(bigBoard.previousPlayBoardPosition)
-        print(bigBoard.previousPlayCellPosition)
+        // Set activation of buttons
+        for var row in 0...8 {
+            for var col in 0...8 {
+                if cellX == col / 3 && cellY == row / 3 {
+                    buttons[row][col].isEnabled = true
+                    updateColorOfButton(buttons[row][col])
+                }
+                else {
+                    buttons[row][col].isEnabled = bigBoard.grid[cellY][cellX].isFull
+                    updateColorOfButton(buttons[row][col])
+                }
+            }
+        }
         
         // Switch players
         if currentPlayer == "X"
@@ -128,6 +146,11 @@ class GameViewController: UIViewController
             }
         }
         return CGPoint(x: -1, y: -1)
+    }
+    
+    func updateColorOfButton(_ button: UIButton) {
+        guard let color = button.backgroundColor else { return }
+        button.backgroundColor = color.withAlphaComponent(button.isEnabled ? 1 : 0.5)
     }
     
     override var shouldAutorotate: Bool
