@@ -37,9 +37,6 @@ class GameViewController: UIViewController
             }
             
             view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
         }
         
         buttons = makeButtonArray()
@@ -141,6 +138,9 @@ class GameViewController: UIViewController
         
         var pos: CGPoint = findButton(sender)
         print("button tapped \(pos)")
+        
+        // Prevents button from changing once pressed
+        sender.isEnabled = false
     }
     
     func findButton(_ sender: UIButton) -> CGPoint {
