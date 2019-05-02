@@ -22,7 +22,6 @@ class GameViewController: UIViewController
     var screenHeight: Int!
     var buttons: [[UIButton]]!
     
-    
     var currentPlayer = "X"
     
     override func viewDidLoad()
@@ -50,10 +49,13 @@ class GameViewController: UIViewController
         smallBoardDraw(buttons: buttons)
         enableInitialBoard()
         print(buttons)
+        
+        
     }
 
     func bigBoardDraw()
     {
+        
         
     }
     

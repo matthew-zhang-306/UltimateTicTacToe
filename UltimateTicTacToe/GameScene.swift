@@ -12,9 +12,17 @@ import GameplayKit
 class GameScene: SKScene
 {
     
+    var bigBoardLines = SKShapeNode()
+    var pathToDraw = CGMutablePath()
+    
     override func didMove(to view: SKView)
     {
-        
+        // Drawing the seperator lines for the big board
+        pathToDraw.move(to: CGPoint(x: 100.0, y: 100.0))
+        pathToDraw.addLine(to: CGPoint(x: 50.0, y: 50.0))
+        bigBoardLines.path = pathToDraw
+        bigBoardLines.strokeColor = SKColor.white
+        self.addChild(bigBoardLines)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
