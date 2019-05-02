@@ -14,106 +14,97 @@ class BigBoard
     var grid: [[Board]]
     var winner: String
     
-    var isFull: Bool
-    var numBoardsFull: Int = 0
+    var numBoardsFull: Int
+    var isFull: Bool { return numBoardsFull >= 9 }
     
     var selectedBoard: CGPoint
+    
+    var previousPlayBoardPosition: CGPoint?
+    var previousPlayCellPosition: CGPoint?
     
     init()
     {
         grid = [[Board(),Board(),Board()],[Board(),Board(),Board()],[Board(),Board(),Board()]]
         winner = " "
         
-        isFull = false
+        numBoardsFull = 0
         
         selectedBoard = CGPoint(x: 0, y: 0)
     }
     
-    func play(_ player: String, at pos: CGPoint) {
+    func play(_ player: String, at pos: CGPoint) -> Bool {
         var x = Int(pos.x)
         var y = Int(pos.y)
         
-        guard x >= 0 && x < 9 && y >= 0 && y < 9 else { return; }
+        guard x >= 0 && x < 9 && y >= 0 && y < 9 else { return false }
         
         let boardX = x % 3
         let boardY = y % 3
         x = x / 3
         y = y / 3
         
-        guard grid[y][x].grid[boardY][boardX] == " " else { return }
+        guard grid[y][x].grid[boardY][boardX] == " " else { return false }
         
-        grid[y][x].play(player, at: CGPoint(x: boardX, y: boardY))
+        previousPlayBoardPosition = CGPoint(x: x, y: y)
+        previousPlayCellPosition = CGPoint(x: boardX, y: boardY)
+        guard grid[y][x].play(player, at: previousPlayCellPosition ?? CGPoint(x: -1, y: -1)) else { return false }
         
         // check for winner
-        var col = 0;
-        while (col < 3) {
+        for var col in 0...2 {
             if (grid[col][x].winner != player) {
                 break
             }
-            col += 1
-            
-            if (col == 3) {
+            if (col == 2) {
                 setWinner(to: player)
             }
         }
         
-        var row = 0;
-        while (row < 3) {
-            if (grid[y][row].winner != player) {
+        for var row in 0...2 {
+            if grid[y][row].winner != player {
                 break
             }
-            row += 1
-            
-            if (row == 3) {
+            if row == 2 {
                 setWinner(to: player)
             }
         }
         
-        if (y == x) {
-            row = 0;
-            while (row < 3) {
-                if (grid[row][row].winner != player) {
+        if y == x {
+            for var row in 0...2 {
+                if grid[row][row].winner != player {
                     break
                 }
-                row += 1
-                
-                if (row == 3) {
+                if row == 2 {
                     setWinner(to: player)
                 }
             }
         }
         
-        if (y == 2 - x) {
-            row = 0;
-            while (row < 3) {
-                if (grid[row][2 - row].winner != player) {
+        if y == 2 - x {
+            for var row in 0...2 {
+                if grid[row][2 - row].winner != player {
                     break
                 }
-                row += 1
-                
-                if (row == 3) {
+                if row == 2 {
                     setWinner(to: player)
                 }
             }
         }
         
         
-        if (grid[y][x].isFull) {
+        if grid[y][x].isFull {
             numBoardsFull += 1
-            if (numBoardsFull == 9) {
-                isFull = true
-            }
         }
         
         
         // set selected board
-        if (grid[boardY][boardX].isFull) {
+        if grid[boardY][boardX].isFull {
             selectedBoard = CGPoint(x: -1, y: -1)
         }
         else {
             selectedBoard = CGPoint(x: boardX, y: boardY)
         }
         
+        return true
     }
     
     func setWinner(to player: String) {
