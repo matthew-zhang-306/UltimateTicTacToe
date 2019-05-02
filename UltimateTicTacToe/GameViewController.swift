@@ -21,7 +21,7 @@ class GameViewController: UIViewController
     var screenWidth: Int!
     var screenHeight: Int!
     var buttons: [[UIButton]]!
-    
+    var winnerViews: [[UIImageView]]!
     
     var currentPlayer = "X"
     
@@ -47,8 +47,8 @@ class GameViewController: UIViewController
         screenWidth = Int(screenSize.width)
         screenHeight = Int(screenSize.height)
         
-        
         buttons = makeButtonArray()
+        winnerViews = createWinnerViews()
         smallBoardDraw(buttons: buttons)
         enableInitialBoard()
         print(buttons)
@@ -97,6 +97,30 @@ class GameViewController: UIViewController
         return buttons
     }
     
+    //Creates 3x3 imageviews that will go on top of each subboard
+    func createWinnerViews() -> [[UIImageView]]
+    {
+        let viewLength = screenWidth / 3
+        let startingY = (screenHeight/2) - (viewLength*2) + (viewLength/2)
+        var imageViews = [[UIImageView]]()
+        
+        var imageViewRow = [UIImageView]()
+        for var row in 0...2
+        {
+                for var col in 0...2
+                {
+                    let view = UIImageView(frame: CGRect(x: col * viewLength, y: startingY + (row * viewLength), width: viewLength, height: viewLength))
+                    self.view.addSubview(view)
+                    imageViewRow.append(view)
+                }
+            imageViews.append(imageViewRow)
+            imageViewRow = [UIImageView]()
+        }
+        
+        return imageViews
+    }
+    
+    
     @IBAction func buttonTest(_ sender: UIButton)
     {
         var pos: CGPoint = findButton(sender)
@@ -110,8 +134,13 @@ class GameViewController: UIViewController
         let cellY = Int(previousPlayCellPosition.y)
         
         // Set button state
-        sender.backgroundColor = .red
-        sender.setTitle(currentPlayer, for: .normal)
+        sender.setImage(UIImage(named: "\(currentPlayer)"), for: .normal)
+        
+        if(bigBoard.grid[boardY][boardX].winner == currentPlayer)
+        {
+            winnerViews[boardY][boardX].image = UIImage(named: "\(currentPlayer)")
+            self.view.bringSubview(toFront: winnerViews[boardY][boardX])
+        }
         
         // Set activation of buttons
         for var row in 0...8 {
