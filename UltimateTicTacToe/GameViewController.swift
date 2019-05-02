@@ -45,6 +45,8 @@ class GameViewController: UIViewController
         }
         
         screenWidth = Int(screenSize.width)
+        screenHeight = Int(screenSize.height)
+        
         
         buttons = makeButtonArray()
         smallBoardDraw(buttons: buttons)
@@ -76,13 +78,14 @@ class GameViewController: UIViewController
         var buttons = [[UIButton]]()
         let buttonLength = screenWidth / 9
         let padding = 2
+        let startingY = (screenHeight/2) - (buttonLength*5) + (buttonLength/2)
         
         for var row in 0...8
         {
             var buttonRow = [UIButton]()
             for var col in 0...8
             {
-                let button = UIButton(frame: CGRect(x: col * buttonLength + padding, y: row * buttonLength + padding, width: buttonLength - 2 * padding, height: buttonLength - 2 * padding))
+                let button = UIButton(frame: CGRect(x: col * buttonLength + padding, y: startingY + (row * buttonLength + padding), width: buttonLength - 2 * padding, height: buttonLength - 2 * padding))
                 button.backgroundColor = .green
                 button.setTitle(" ", for: .normal)
                 button.setTitleColor(.black, for: .normal)
