@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nqs-an-REA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,73 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title View Controller-->
-        <scene sceneID="ibQ-Zt-rxV">
-            <objects>
-                <viewController id="DeP-hp-0m3" customClass="TitleViewController" customModule="UltimateTicTacToe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="l9U-2E-iVD">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fak-T3-T0L">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="1302"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimate Tic-Tac-Toe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-QF-h10">
-                                        <rect key="frame" x="242.5" y="0.0" width="539.5" height="529.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="62"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-BF-gwz">
-                                        <rect key="frame" x="468.5" y="529.5" width="87" height="500.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <state key="normal" title="Play"/>
-                                        <connections>
-                                            <segue destination="9Nf-sg-5Ef" kind="show" id="FBK-Ir-bZi"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adx-Ac-Wbw">
-                                        <rect key="frame" x="458" y="1030" width="108" height="272"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="How to Play"/>
-                                        <connections>
-                                            <segue destination="qUB-iY-rtF" kind="show" id="3fI-l2-4bx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="fak-T3-T0L" firstAttribute="top" secondItem="oXr-dy-Tgc" secondAttribute="top" id="K8c-Lu-Mzy"/>
-                            <constraint firstItem="oXr-dy-Tgc" firstAttribute="bottom" secondItem="fak-T3-T0L" secondAttribute="bottom" id="LIJ-Ok-21O"/>
-                            <constraint firstItem="oXr-dy-Tgc" firstAttribute="trailing" secondItem="fak-T3-T0L" secondAttribute="trailing" id="Ovx-C1-me8"/>
-                            <constraint firstItem="fak-T3-T0L" firstAttribute="leading" secondItem="oXr-dy-Tgc" secondAttribute="leading" id="VS4-Wf-EC4"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="oXr-dy-Tgc"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="GNZ-C5-uRz"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JYh-Wp-5VZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-628" y="31.934032983508249"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="waI-x2-mxy">
-            <objects>
-                <navigationController id="nqs-an-REA" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cQg-SY-RaG">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="DeP-hp-0m3" kind="relationship" relationship="rootViewController" id="qBC-C7-rtn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UwN-5D-L4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1752" y="31"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="Jah-9L-Cb7">
             <objects>
@@ -86,18 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W1Z-jd-aZz">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="1302"/>
+                                <rect key="frame" x="0.0" y="20" width="1024" height="1346"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-a7-SMn">
-                                        <rect key="frame" x="364.5" y="0.0" width="295" height="651"/>
+                                        <rect key="frame" x="364.5" y="0.0" width="295" height="673"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="One Device"/>
-                                        <connections>
-                                            <segue destination="BV1-FR-VrT" kind="show" id="2Um-KH-qzg"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRf-Ae-aSf">
-                                        <rect key="frame" x="351.5" y="651" width="321" height="651"/>
+                                        <rect key="frame" x="351.5" y="673" width="321" height="673"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="Two Devices"/>
                                     </button>
@@ -160,13 +90,48 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="UkJ-fi-WSf">
+                                <rect key="frame" x="242.5" y="532" width="539.5" height="323"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimate Tic-Tac-Toe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcy-XH-cs6">
+                                        <rect key="frame" x="0.0" y="0.0" width="539.5" height="74"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="62"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efs-ZZ-M5t">
+                                        <rect key="frame" x="231" y="143" width="78" height="63.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <segue destination="9Nf-sg-5Ef" kind="show" id="dWd-Bg-2WA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dft-1o-6hl">
+                                        <rect key="frame" x="194" y="275.5" width="152" height="47.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="How to play"/>
+                                        <connections>
+                                            <segue destination="qUB-iY-rtF" kind="show" id="bIj-7A-uYN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UkJ-fi-WSf" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="242.25" id="0cN-qv-2df"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="UkJ-fi-WSf" secondAttribute="trailing" constant="242.25" id="Rxe-m9-2eT"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="UkJ-fi-WSf" secondAttribute="bottom" constant="511" id="elY-aU-q3L"/>
+                            <constraint firstItem="UkJ-fi-WSf" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="512" id="r33-U9-PrI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="32"/>
+            <point key="canvasLocation" x="-628" y="31"/>
         </scene>
     </scenes>
 </document>

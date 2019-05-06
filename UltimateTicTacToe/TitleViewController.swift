@@ -12,6 +12,7 @@ class TitleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createAnimateShape()
         // Do any additional setup after loading the view.
     }
 
@@ -35,7 +36,6 @@ class TitleViewController: UIViewController {
             imageView.alpha = CGFloat(0.5)
         }
         view.addSubview(imageView)
-        
         UIImageView.animate(withDuration: chooseSpeed(), animations: {imageView.frame.origin.y += 1416})
     }
     func chooseShape() -> String
