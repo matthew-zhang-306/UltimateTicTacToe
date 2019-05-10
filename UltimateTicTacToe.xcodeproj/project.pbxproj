@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091BB172227B579600D01F8E /* PointHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091BB171227B579600D01F8E /* PointHelper.swift */; };
 		09442C02226794AC0073D617 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09442C01226794AC0073D617 /* Board.swift */; };
 		094D3DB522678BBA00674B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D3DB422678BBA00674B9A /* AppDelegate.swift */; };
 		094D3DB722678BBA00674B9A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 094D3DB622678BBA00674B9A /* GameScene.sks */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		091BB171227B579600D01F8E /* PointHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointHelper.swift; sourceTree = "<group>"; };
 		09442C01226794AC0073D617 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		094D3DB122678BBA00674B9A /* UltimateTicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateTicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		094D3DB422678BBA00674B9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				094D3DC622678BC000674B9A /* Info.plist */,
 				09442C01226794AC0073D617 /* Board.swift */,
 				3A5A7FB2226F702200CC7B6A /* BigBoard.swift */,
+				091BB171227B579600D01F8E /* PointHelper.swift */,
 			);
 			path = UltimateTicTacToe;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091BB172227B579600D01F8E /* PointHelper.swift in Sources */,
 				094D3DBB22678BBB00674B9A /* GameScene.swift in Sources */,
 				094D3DBD22678BBB00674B9A /* GameViewController.swift in Sources */,
 				3A5A7FB3226F702200CC7B6A /* BigBoard.swift in Sources */,
