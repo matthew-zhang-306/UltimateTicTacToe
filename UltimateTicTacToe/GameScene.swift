@@ -11,37 +11,70 @@ import GameplayKit
 
 class GameScene: SKScene
 {
+    var scenePointToViewPoint: CGPoint!
+    var screenSize: CGRect!
     
-    var scenePointToViewPoint: CGPoint = CGPoint(x: -UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+    func toScenePoint(_ point: CGPoint) -> CGPoint {
+        return CGPoint(x: point.x, y: -point.y) + scenePointToViewPoint
+    }
     
     override func didMove(to view: SKView)
     {
-        drawBoardLines(startPos: CGPoint(x: 0, y: 0) + scenePointToViewPoint, squareSize: CGPoint(x: UIScreen.main.bounds.width / 9, y: UIScreen.main.bounds.height / 9))
+        drawBoardLines(at: CGPoint(x: 0, y: 0), width: screenSize.width, halfPadding: 0)
+        for yIndex in 0...2 {
+            for xIndex in 0...2 {
+                let Y = CGFloat(yIndex)
+                let X = CGFloat(xIndex)
+                drawBoardLines(at: CGPoint(x: X * screenSize.width / 3, y: Y * screenSize.width / 3), width: screenSize.width / 3, halfPadding: 10)
+            }
+        }
     }
     
-    func drawBoardLines(startPos: CGPoint, squareSize: CGPoint) {
-        print(scenePointToViewPoint)
+    func drawBoardLines(at startPos: CGPoint, width boardWidth: CGFloat, halfPadding: CGFloat) {
+        drawLine(from: CGPoint(
+            x: startPos.x + halfPadding,
+            y: startPos.y + boardWidth / 3
+        ), to: CGPoint(
+            x: startPos.x + boardWidth - halfPadding,
+            y: startPos.y + boardWidth / 3
+        ))
         
-        var bigBoardLine = SKShapeNode()
+        drawLine(from: CGPoint(
+            x: startPos.x + halfPadding,
+            y: startPos.y + 2 * boardWidth / 3
+        ), to: CGPoint(
+            x: startPos.x + boardWidth - halfPadding,
+            y: startPos.y + 2 * boardWidth / 3
+        ))
         
-        bigBoardLine.strokeColor = SKColor.white
-        bigBoardLine.lineWidth = 10
+        drawLine(from: CGPoint(
+            x: startPos.x + boardWidth / 3,
+            y: startPos.y + halfPadding
+        ), to: CGPoint(x:
+            startPos.x + boardWidth / 3,
+            y: startPos.y + boardWidth - halfPadding
+        ))
         
-        // Drawing the seperator lines for the big board
-        var pathToDraw = CGMutablePath()
-        pathToDraw.move(to: CGPoint(x: startPos.x, y: startPos.y + squareSize.y))
-        pathToDraw.addLine(to: CGPoint(x: startPos.x + 3 * squareSize.x, y: startPos.y + squareSize.y))
-        bigBoardLine.path = pathToDraw
-        self.addChild(bigBoardLine)
+        drawLine(from: CGPoint(
+            x: startPos.x + 2 * boardWidth / 3,
+            y: startPos.y + halfPadding
+        ), to: CGPoint(
+            x: startPos.x + 2 * boardWidth / 3,
+            y: startPos.y + boardWidth - halfPadding
+        ))
+    }
+    
+    func drawLine(from start: CGPoint, to end: CGPoint) {
+        let line = SKShapeNode()
+        line.strokeColor = SKColor.white
+        line.lineWidth = 3
         
-        bigBoardLine = SKShapeNode()
-        pathToDraw = CGMutablePath()
-        pathToDraw.move(to: CGPoint(x: startPos.x, y: startPos.y + 2 * squareSize.y))
-        pathToDraw.addLine(to: CGPoint(x: startPos.x + 3 * squareSize.x, y: startPos.y + 2 * squareSize.y))
-        bigBoardLine.path = pathToDraw
+        let path = CGMutablePath()
+        path.move(to: toScenePoint(start))
+        path.addLine(to: toScenePoint(end))
+        line.path = path
         
-        
-        
+        self.addChild(line)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -53,7 +86,7 @@ class GameScene: SKScene
         }
         
         let touchLocation = touch.location(in: self)
-        print(touchLocation)
+        print(touchLocation - scenePointToViewPoint)
     }
     
     
