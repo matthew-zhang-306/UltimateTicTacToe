@@ -107,8 +107,10 @@ class BigBoard
         return true
     }
     
-    func setWinner(to player: String) {
+    func setWinner(to player: String)
+    {
         winner = player
+        print("\(winner) won the game")
     }
     
 }
