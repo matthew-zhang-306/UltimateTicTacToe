@@ -36,7 +36,7 @@ class Board
         grid[y][x] = player
         
         // check for winner
-        for var col in 0...2 {
+        for col in 0...2 {
             if grid[col][x] != player {
                 break
             }
@@ -45,7 +45,7 @@ class Board
             }
         }
         
-        for var row in 0...2 {
+        for row in 0...2 {
             if grid[y][row] != player {
                 break
             }
@@ -55,7 +55,7 @@ class Board
         }
         
         if y == x {
-            for var row in 0...2 {
+            for row in 0...2 {
                 if grid[row][row] != player {
                     break
                 }
@@ -66,7 +66,7 @@ class Board
         }
         
         if y == 2 - x {
-            for var row in 0...2 {
+            for row in 0...2 {
                 if grid[row][2 - row] != player {
                     break
                 }

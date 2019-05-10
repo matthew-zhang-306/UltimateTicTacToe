@@ -32,10 +32,13 @@ class GameViewController: UIViewController
         if let view = self.view as! SKView?
         {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene")
+            if let scene = SKScene(fileNamed: "GameScene") as? GameScene
             {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
+                scene.scaleMode = .aspectFit
+                scene.size = view.bounds.size
+                scene.scenePointToViewPoint = CGPoint(x: -screenSize.width / 2, y: screenSize.height / 2)
+                scene.screenSize = screenSize
                 
                 // Present the scene
                 view.presentScene(scene)
@@ -50,12 +53,13 @@ class GameViewController: UIViewController
         buttons = makeButtonArray()
         winnerViews = createWinnerViews()
         smallBoardDraw(buttons: buttons)
-        enableInitialBoard()
-        print(buttons)
+        setButtonActivation(x: 0, y: 0)
+        
     }
 
     func bigBoardDraw()
     {
+        
         
     }
     
@@ -80,15 +84,15 @@ class GameViewController: UIViewController
         let padding = 2
         let startingY = (screenHeight/2) - (buttonLength*5) + (buttonLength/2)
         
-        for var row in 0...8
+        for row in 0...8
         {
             var buttonRow = [UIButton]()
-            for var col in 0...8
+            for col in 0...8
             {
                 let button = UIButton(frame: CGRect(x: col * buttonLength + padding, y: startingY + (row * buttonLength + padding), width: buttonLength - 2 * padding, height: buttonLength - 2 * padding))
                 button.backgroundColor = .green
                 button.setTitle(" ", for: .normal)
-                button.setTitleColor(.black, for: .normal)
+                button.setTitleColor(.white, for: .normal)
                 button.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
                 buttonRow.append(button)
             }
@@ -123,13 +127,13 @@ class GameViewController: UIViewController
     
     @IBAction func buttonTest(_ sender: UIButton)
     {
-        var pos: CGPoint = findButton(sender)
+        let pos: CGPoint = findButton(sender)
         
         guard bigBoard.play(currentPlayer, at: pos) else { return }
         guard let previousPlayBoardPosition = bigBoard.previousPlayBoardPosition else { return }
         guard let previousPlayCellPosition = bigBoard.previousPlayCellPosition else { return }
-        let boardX = Int(previousPlayBoardPosition.x)
-        let boardY = Int(previousPlayBoardPosition.y)
+        let _ = Int(previousPlayBoardPosition.x)
+        let _ = Int(previousPlayBoardPosition.y)
         let cellX = Int(previousPlayCellPosition.x)
         let cellY = Int(previousPlayCellPosition.y)
         
@@ -143,19 +147,7 @@ class GameViewController: UIViewController
         }
         
         // Set activation of buttons
-        for var row in 0...8 {
-            for var col in 0...8 {
-                if cellX == col / 3 && cellY == row / 3
-                {
-                    buttons[row][col].isEnabled = true
-                    updateColorOfButton(buttons[row][col])
-                }
-                else {
-                    buttons[row][col].isEnabled = bigBoard.grid[cellY][cellX].isFull || bigBoard.grid[cellY][cellX].winner != " "
-                    updateColorOfButton(buttons[row][col])
-                }
-            }
-        }
+        setButtonActivation(x: cellX, y: cellY)
         
         // Switch players
         if currentPlayer == "X"
@@ -169,8 +161,8 @@ class GameViewController: UIViewController
     }
     
     func findButton(_ sender: UIButton) -> CGPoint {
-        for var y in 0...8 {
-            for var x in 0...8 {
+        for y in 0...8 {
+            for x in 0...8 {
                 if buttons[y][x] == sender {
                     return CGPoint(x: x, y: y)
                 }
@@ -179,24 +171,31 @@ class GameViewController: UIViewController
         return CGPoint(x: -1, y: -1)
     }
     
-    func enableInitialBoard()
+    func setButtonActivation(x cellX: Int, y cellY: Int)
     {
-        for var row in 0...8
-        {
-            for var col in 0...8
-            {
-                if col > 2 || row > 2
-                {
+        for row in 0...8 {
+            for col in 0...8 {
+                if buttons[row][col].titleLabel?.text != " " {
                     buttons[row][col].isEnabled = false
-                    updateColorOfButton(buttons[row][col])
                 }
+                else if bigBoard.grid[col / 3][row / 3].winner != " " {
+                    buttons[row][col].isEnabled = false
+                }
+                else if cellX == col / 3 && cellY == row / 3
+                {
+                    buttons[row][col].isEnabled = true
+                }
+                else {
+                    buttons[row][col].isEnabled = bigBoard.grid[cellY][cellX].isFull || bigBoard.grid[cellY][cellX].winner != " "
+                }
+                updateColorOfButton(buttons[row][col])
             }
         }
     }
     
     func updateColorOfButton(_ button: UIButton) {
         guard let color = button.backgroundColor else { return }
-        button.backgroundColor = color.withAlphaComponent(button.isEnabled ? 1 : 0.5)
+        button.backgroundColor = color.withAlphaComponent(button.isEnabled ? 0.2 : 0)
     }
     
     override var shouldAutorotate: Bool

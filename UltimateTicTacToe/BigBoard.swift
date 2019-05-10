@@ -50,7 +50,7 @@ class BigBoard
         guard grid[y][x].play(player, at: previousPlayCellPosition ?? CGPoint(x: -1, y: -1)) else { return false }
         
         // check for winner
-        for var col in 0...2 {
+        for col in 0...2 {
             if (grid[col][x].winner != player) {
                 break
             }
@@ -59,7 +59,7 @@ class BigBoard
             }
         }
         
-        for var row in 0...2 {
+        for row in 0...2 {
             if grid[y][row].winner != player {
                 break
             }
@@ -69,7 +69,7 @@ class BigBoard
         }
         
         if y == x {
-            for var row in 0...2 {
+            for row in 0...2 {
                 if grid[row][row].winner != player {
                     break
                 }
@@ -80,7 +80,7 @@ class BigBoard
         }
         
         if y == 2 - x {
-            for var row in 0...2 {
+            for row in 0...2 {
                 if grid[row][2 - row].winner != player {
                     break
                 }
