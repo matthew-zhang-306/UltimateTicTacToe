@@ -27,6 +27,10 @@ class WinScreenViewController: UIViewController
         performSegue(withIdentifier: "ReplaySegue", sender: self)
     }
     
+    @IBAction func mainMenu(_ sender: Any)
+    {
+        performSegue(withIdentifier: "MainMenuSegue", sender: self)
+    }
     /*
     // MARK: - Navigation
 

@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fak-T3-T0L">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimate Tic-Tac-Toe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-QF-h10">
-                                        <rect key="frame" x="40.333333333333343" y="0.0" width="333.66666666666663" height="388.66666666666669"/>
+                                        <rect key="frame" x="40.333333333333343" y="0.0" width="333.66666666666663" height="414"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="62"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-BF-gwz">
-                                        <rect key="frame" x="163.66666666666663" y="388.66666666666669" width="87" height="183.66666666666669"/>
+                                        <rect key="frame" x="163.66666666666666" y="414" width="87" height="195.66666666666663"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
@@ -36,7 +36,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adx-Ac-Wbw">
-                                        <rect key="frame" x="153" y="572.33333333333337" width="108" height="99.666666666666629"/>
+                                        <rect key="frame" x="153" y="609.66666666666663" width="108" height="106.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="How to Play"/>
                                         <connections>
@@ -86,10 +86,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W1Z-jd-aZz">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-a7-SMn">
-                                        <rect key="frame" x="59.666666666666629" y="0.0" width="295" height="336"/>
+                                        <rect key="frame" x="59.666666666666657" y="0.0" width="295" height="358"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="One Device"/>
                                         <connections>
@@ -97,7 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRf-Ae-aSf">
-                                        <rect key="frame" x="46.666666666666629" y="336" width="321" height="336"/>
+                                        <rect key="frame" x="46.666666666666657" y="358" width="321" height="358"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="Two Devices"/>
                                     </button>
@@ -193,16 +193,28 @@
                                     <action selector="newGame:" destination="Yd4-vu-EKd" eventType="touchUpInside" id="26M-V9-Xnb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b49-7u-z6Y">
+                                <rect key="frame" x="0.0" y="523" width="414" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Main Menu"/>
+                                <connections>
+                                    <action selector="mainMenu:" destination="Yd4-vu-EKd" eventType="touchUpInside" id="OhW-qU-mry"/>
+                                    <segue destination="DeP-hp-0m3" kind="presentation" identifier="MainMenuSegue" id="xU0-yA-bT6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PsV-cc-6cN" firstAttribute="trailing" secondItem="S5g-4R-QCB" secondAttribute="trailing" constant="10" id="7MQ-8Q-BYP"/>
+                            <constraint firstItem="b49-7u-z6Y" firstAttribute="leading" secondItem="PsV-cc-6cN" secondAttribute="leading" id="Dcy-b2-esQ"/>
                             <constraint firstItem="S5g-4R-QCB" firstAttribute="leading" secondItem="PsV-cc-6cN" secondAttribute="leading" constant="10" id="MHn-gg-U2W"/>
+                            <constraint firstItem="b49-7u-z6Y" firstAttribute="trailing" secondItem="PsV-cc-6cN" secondAttribute="trailing" id="Qim-Tm-uPm"/>
                             <constraint firstItem="S5g-4R-QCB" firstAttribute="top" secondItem="PsV-cc-6cN" secondAttribute="top" constant="288" id="Wbx-r8-VfB"/>
                             <constraint firstItem="kvF-HP-1yR" firstAttribute="leading" secondItem="PsV-cc-6cN" secondAttribute="leading" id="X9U-ES-jl9"/>
                             <constraint firstItem="kvF-HP-1yR" firstAttribute="top" secondItem="S5g-4R-QCB" secondAttribute="bottom" constant="8" id="c5q-HX-cuj"/>
                             <constraint firstItem="kvF-HP-1yR" firstAttribute="trailing" secondItem="PsV-cc-6cN" secondAttribute="trailing" id="m4c-up-aot"/>
                             <constraint firstItem="PsV-cc-6cN" firstAttribute="bottom" secondItem="S5g-4R-QCB" secondAttribute="bottom" constant="308" id="mo4-U9-hBg"/>
+                            <constraint firstItem="b49-7u-z6Y" firstAttribute="top" secondItem="kvF-HP-1yR" secondAttribute="bottom" constant="45" id="wzE-3w-fut"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PsV-cc-6cN"/>
                     </view>
@@ -218,5 +230,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="SgB-nN-Wps"/>
+        <segue reference="xU0-yA-bT6"/>
     </inferredMetricsTieBreakers>
 </document>
