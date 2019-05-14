@@ -151,6 +151,11 @@ class GameViewController: UIViewController
             self.view.bringSubview(toFront: winnerViews[boardY][boardX])
         }
         
+        if(bigBoard.winner == currentPlayer)
+        {
+            performSegue(withIdentifier: "WinScreenSegue", sender: self)
+        }
+        
         // Set activation of buttons
         setButtonActivation(x: cellX, y: cellY)
         
@@ -178,6 +183,7 @@ class GameViewController: UIViewController
                 currentPlayer = "X"
             }
         }
+        
     }
     
     func findButton(_ sender: UIButton) -> CGPoint {
@@ -248,5 +254,20 @@ class GameViewController: UIViewController
     {
         return true
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let destination = segue.destination as? WinScreenViewController
+        {
+            destination.winner = self.bigBoard.winner
+        }
+    }
+    
+    func newGame()
+    {
+        board = Board()
+        bigBoard = BigBoard()
+        currentPlayer = "X"
+        enableInitialBoard()
+    }
 }

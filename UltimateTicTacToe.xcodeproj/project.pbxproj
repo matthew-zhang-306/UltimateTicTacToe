@@ -18,8 +18,13 @@
 		094D3DC522678BBF00674B9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094D3DC322678BBF00674B9A /* LaunchScreen.storyboard */; };
 		094D3DD022678BC000674B9A /* UltimateTicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D3DCF22678BC000674B9A /* UltimateTicTacToeTests.swift */; };
 		094D3DDB22678BC000674B9A /* UltimateTicTacToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D3DDA22678BC000674B9A /* UltimateTicTacToeUITests.swift */; };
+<<<<<<< HEAD
 		09ABC2A02285E7DF00AD5A27 /* PointHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ABC29F2285E7DE00AD5A27 /* PointHelper.swift */; };
 		09DC8DBA226F73F3006AE1C9 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC8DB9226F73F3006AE1C9 /* HowToPlayViewController.swift */; };
+=======
+		09DC8DBA226F73F3006AE1C9 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC8DB9226F73F3006AE1C9 /* HowToPlayViewController.swift */; };
+		3A1FF8D42285D73300D8602D /* WinScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FF8D32285D73300D8602D /* WinScreenViewController.swift */; };
+>>>>>>> ff0ceb7f397bf663a98a60c488aa8c4e8b974e62
 		3A5A7FB3226F702200CC7B6A /* BigBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A7FB2226F702200CC7B6A /* BigBoard.swift */; };
 		B0D8773722678E8E00A73E01 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D8773622678E8E00A73E01 /* TitleViewController.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +66,7 @@
 		094D3DDC22678BC000674B9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09ABC29F2285E7DE00AD5A27 /* PointHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointHelper.swift; sourceTree = "<group>"; };
 		09DC8DB9226F73F3006AE1C9 /* HowToPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
+		3A1FF8D32285D73300D8602D /* WinScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScreenViewController.swift; sourceTree = "<group>"; };
 		3A5A7FB2226F702200CC7B6A /* BigBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBoard.swift; sourceTree = "<group>"; };
 		B0D8773622678E8E00A73E01 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +132,11 @@
 				094D3DC622678BC000674B9A /* Info.plist */,
 				09442C01226794AC0073D617 /* Board.swift */,
 				3A5A7FB2226F702200CC7B6A /* BigBoard.swift */,
+<<<<<<< HEAD
 				09ABC29F2285E7DE00AD5A27 /* PointHelper.swift */,
+=======
+				3A1FF8D32285D73300D8602D /* WinScreenViewController.swift */,
+>>>>>>> ff0ceb7f397bf663a98a60c488aa8c4e8b974e62
 			);
 			path = UltimateTicTacToe;
 			sourceTree = "<group>";
@@ -287,8 +297,13 @@
 				094D3DBD22678BBB00674B9A /* GameViewController.swift in Sources */,
 				3A5A7FB3226F702200CC7B6A /* BigBoard.swift in Sources */,
 				09442C02226794AC0073D617 /* Board.swift in Sources */,
+<<<<<<< HEAD
 				094D3DB522678BBA00674B9A /* AppDelegate.swift in Sources */,
 				09ABC2A02285E7DF00AD5A27 /* PointHelper.swift in Sources */,
+=======
+				3A1FF8D42285D73300D8602D /* WinScreenViewController.swift in Sources */,
+				094D3DB522678BBA00674B9A /* AppDelegate.swift in Sources */,
+>>>>>>> ff0ceb7f397bf663a98a60c488aa8c4e8b974e62
 				09DC8DBA226F73F3006AE1C9 /* HowToPlayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
