@@ -23,6 +23,9 @@ class GameViewController: UIViewController
     var buttons: [[UIButton]]!
     var winnerViews: [[UIImageView]]!
     
+    var buttonLength: Int!
+    var startingY: Int!
+    
     var currentPlayer = "X"
     
     override func viewDidLoad()
@@ -34,11 +37,17 @@ class GameViewController: UIViewController
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") as? GameScene
             {
+                self.screenWidth = Int(screenSize.width)
+                self.screenHeight = Int(screenSize.height)
+                self.buttonLength = screenWidth / 9
+                self.startingY = (screenHeight/2) - (buttonLength*5) + (buttonLength/2)
+                
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFit
                 scene.size = view.bounds.size
                 scene.scenePointToViewPoint = CGPoint(x: -screenSize.width / 2, y: screenSize.height / 2)
                 scene.screenSize = screenSize
+                scene.startingY = CGFloat(startingY)
                 
                 // Present the scene
                 view.presentScene(scene)
@@ -80,19 +89,17 @@ class GameViewController: UIViewController
     func makeButtonArray() -> [[UIButton]]
     {
         var buttons = [[UIButton]]()
-        let buttonLength = screenWidth / 9
         let padding = 2
-        let startingY = (screenHeight/2) - (buttonLength*5) + (buttonLength/2)
         
         for row in 0...8
         {
             var buttonRow = [UIButton]()
             for col in 0...8
             {
-                let button = UIButton(frame: CGRect(x: col * buttonLength + padding, y: startingY + (row * buttonLength + padding), width: buttonLength - 2 * padding, height: buttonLength - 2 * padding))
-                button.backgroundColor = .green
+                let button = UIButton(frame: CGRect(x: col * buttonLength + padding, y: startingY + row * buttonLength + padding, width: buttonLength - 2 * padding, height: buttonLength - 2 * padding))
+                button.backgroundColor = .white
                 button.setTitle(" ", for: .normal)
-                button.setTitleColor(.white, for: .normal)
+                button.setTitleColor(.clear, for: .normal)
                 button.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
                 buttonRow.append(button)
             }
@@ -109,14 +116,15 @@ class GameViewController: UIViewController
         var imageViews = [[UIImageView]]()
         
         var imageViewRow = [UIImageView]()
-        for var row in 0...2
+        for row in 0...2
         {
-                for var col in 0...2
-                {
-                    let view = UIImageView(frame: CGRect(x: col * viewLength, y: startingY + (row * viewLength), width: viewLength, height: viewLength))
-                    self.view.addSubview(view)
-                    imageViewRow.append(view)
-                }
+            for col in 0...2
+            {
+                let view = UIImageView(frame: CGRect(x: col * viewLength, y: startingY + (row * viewLength), width: viewLength, height: viewLength))
+                self.view.addSubview(view)
+                imageViewRow.append(view)
+            }
+            
             imageViews.append(imageViewRow)
             imageViewRow = [UIImageView]()
         }
@@ -132,13 +140,14 @@ class GameViewController: UIViewController
         guard bigBoard.play(currentPlayer, at: pos) else { return }
         guard let previousPlayBoardPosition = bigBoard.previousPlayBoardPosition else { return }
         guard let previousPlayCellPosition = bigBoard.previousPlayCellPosition else { return }
-        let _ = Int(previousPlayBoardPosition.x)
-        let _ = Int(previousPlayBoardPosition.y)
+        let boardX = Int(previousPlayBoardPosition.x)
+        let boardY = Int(previousPlayBoardPosition.y)
         let cellX = Int(previousPlayCellPosition.x)
         let cellY = Int(previousPlayCellPosition.y)
         
         // Set button state
         sender.setImage(UIImage(named: "\(currentPlayer)"), for: .normal)
+        sender.setTitle(currentPlayer, for: .normal)
         
         if(bigBoard.grid[boardY][boardX].winner == currentPlayer)
         {
@@ -178,7 +187,7 @@ class GameViewController: UIViewController
                 if buttons[row][col].titleLabel?.text != " " {
                     buttons[row][col].isEnabled = false
                 }
-                else if bigBoard.grid[col / 3][row / 3].winner != " " {
+                else if bigBoard.grid[row / 3][col / 3].winner != " " {
                     buttons[row][col].isEnabled = false
                 }
                 else if cellX == col / 3 && cellY == row / 3
@@ -189,6 +198,10 @@ class GameViewController: UIViewController
                     buttons[row][col].isEnabled = bigBoard.grid[cellY][cellX].isFull || bigBoard.grid[cellY][cellX].winner != " "
                 }
                 updateColorOfButton(buttons[row][col])
+                
+                if row == 8 && col == 8 {
+                    print("\(cellX) \(cellY)")
+                }
             }
         }
     }
