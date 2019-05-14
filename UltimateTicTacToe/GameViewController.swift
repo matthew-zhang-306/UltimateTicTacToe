@@ -65,12 +65,6 @@ class GameViewController: UIViewController
         setButtonActivation(x: 0, y: 0)
         
     }
-
-    func bigBoardDraw()
-    {
-        
-        
-    }
     
     func smallBoardDraw(buttons: [[UIButton]])
     {
@@ -135,6 +129,8 @@ class GameViewController: UIViewController
     
     @IBAction func buttonTest(_ sender: UIButton)
     {
+        guard bigBoard.winner == " " else { return }
+        
         let pos: CGPoint = findButton(sender)
         
         guard bigBoard.play(currentPlayer, at: pos) else { return }
@@ -158,14 +154,29 @@ class GameViewController: UIViewController
         // Set activation of buttons
         setButtonActivation(x: cellX, y: cellY)
         
-        // Switch players
-        if currentPlayer == "X"
-        {
-            currentPlayer = "O"
+        // Check for winner
+        if bigBoard.winner == currentPlayer {
+            let winRect = UIButton(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+            
+            winRect.isEnabled = false
+            winRect.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+            winRect.setTitle("\(currentPlayer) wins!", for: .normal)
+            winRect.setTitleColor(.white, for: .normal)
+            winRect.titleLabel?.font = .systemFont(ofSize: 60)
+            winRect.titleLabel?.textAlignment = .center
+            
+            self.view.addSubview(winRect)
         }
-        else
-        {
-            currentPlayer = "X"
+        else {
+            // Switch players
+            if currentPlayer == "X"
+            {
+                currentPlayer = "O"
+            }
+            else
+            {
+                currentPlayer = "X"
+            }
         }
     }
     
@@ -184,24 +195,23 @@ class GameViewController: UIViewController
     {
         for row in 0...8 {
             for col in 0...8 {
-                if buttons[row][col].titleLabel?.text != " " {
+                if bigBoard.winner != " " {
+                    buttons[row][col].isEnabled = false
+                }
+                else if buttons[row][col].titleLabel?.text != " " {
                     buttons[row][col].isEnabled = false
                 }
                 else if bigBoard.grid[row / 3][col / 3].winner != " " {
                     buttons[row][col].isEnabled = false
                 }
-                else if cellX == col / 3 && cellY == row / 3
-                {
+                else if cellX == col / 3 && cellY == row / 3 {
                     buttons[row][col].isEnabled = true
                 }
                 else {
                     buttons[row][col].isEnabled = bigBoard.grid[cellY][cellX].isFull || bigBoard.grid[cellY][cellX].winner != " "
                 }
-                updateColorOfButton(buttons[row][col])
                 
-                if row == 8 && col == 8 {
-                    print("\(cellX) \(cellY)")
-                }
+                updateColorOfButton(buttons[row][col])
             }
         }
     }
