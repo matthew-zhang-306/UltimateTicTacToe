@@ -142,6 +142,11 @@ class GameViewController: UIViewController
             self.view.bringSubview(toFront: winnerViews[boardY][boardX])
         }
         
+        if(bigBoard.numBoardsFull == 9)
+        {
+            performSegue(withIdentifier: "WinScreenSegue", sender: self)
+        }
+        
         if(bigBoard.winner == currentPlayer)
         {
             performSegue(withIdentifier: "WinScreenSegue", sender: self)

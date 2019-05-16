@@ -91,10 +91,10 @@ class BigBoard
         }
         
         
-        if grid[y][x].isFull {
+        if grid[y][x].isFull
+        {
             numBoardsFull += 1
         }
-        
         
         // set selected board
         if grid[boardY][boardX].isFull {
