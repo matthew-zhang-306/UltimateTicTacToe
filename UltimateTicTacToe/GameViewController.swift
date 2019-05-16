@@ -13,9 +13,12 @@ import GameplayKit
 
 class GameViewController: UIViewController
 {
+    @IBOutlet weak var timerLabel: UILabel!
+    
     var board = Board()
     var bigBoard = BigBoard()
     
+    var turnTime = 30
     
     let screenSize: CGRect = UIScreen.main.bounds
     var screenWidth: Int!
@@ -64,6 +67,19 @@ class GameViewController: UIViewController
         smallBoardDraw(buttons: buttons)
         setButtonActivation(x: 0, y: 0)
         
+        timerLabel.text = String(turnTime)
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(Timer) in self.updateTime()})
+        
+    }
+    
+    func updateTime()
+    {
+        turnTime -= 1
+        if(turnTime == 0)
+        {
+            turnTime = 30
+        }
+        timerLabel.text = String(turnTime)
     }
     
     func smallBoardDraw(buttons: [[UIButton]])
@@ -268,6 +284,6 @@ class GameViewController: UIViewController
         board = Board()
         bigBoard = BigBoard()
         currentPlayer = "X"
-        enableInitialBoard()
+        setButtonActivation(x: 0, y: 0)
     }
 }
