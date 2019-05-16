@@ -268,6 +268,6 @@ class GameViewController: UIViewController
         board = Board()
         bigBoard = BigBoard()
         currentPlayer = "X"
-        enableInitialBoard()
+        setButtonActivation(x: 0, y: 0)
     }
 }
