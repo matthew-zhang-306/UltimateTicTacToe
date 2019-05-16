@@ -91,13 +91,15 @@ class BigBoard
         }
         
         
-        if grid[y][x].isFull
+        if grid[y][x].isFull || grid[y][x].winner != " "
         {
             numBoardsFull += 1
+            print(numBoardsFull)
         }
         
         // set selected board
-        if grid[boardY][boardX].isFull {
+        if grid[boardY][boardX].isFull
+        {
             selectedBoard = CGPoint(x: -1, y: -1)
         }
         else {
