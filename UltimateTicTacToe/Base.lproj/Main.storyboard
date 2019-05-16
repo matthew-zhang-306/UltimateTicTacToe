@@ -133,13 +133,13 @@
                                 <rect key="frame" x="102.5" y="343.5" width="819" height="683"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kf-oj-0js">
-                                        <rect key="frame" x="164.5" y="0.0" width="490.5" height="205.5"/>
+                                        <rect key="frame" x="164.5" y="0.0" width="490.5" height="171"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="96"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-bY-hZm">
-                                        <rect key="frame" x="4.5" y="205.5" width="810.5" height="477.5"/>
+                                        <rect key="frame" x="4.5" y="171" width="810.5" height="512"/>
                                         <string key="text">In Ultimate Tic-Tac-Toe, you play on a 3x3 grid of 3x3 grids.  The objective is to get three-in-a-row on the big board.  To claim a space on the big board, you must win the tic-tac-toe game in that space.  Additionally, the position of the previous move determines the subboard on which the next move has to be made.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="textColor"/>
@@ -188,42 +188,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5g-4R-QCB">
-                                <rect key="frame" x="10" y="312" width="1004" height="726"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvF-HP-1yR">
-                                <rect key="frame" x="0.0" y="1046" width="1024" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Play Again"/>
-                                <connections>
-                                    <action selector="newGame:" destination="Yd4-vu-EKd" eventType="touchUpInside" id="26M-V9-Xnb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b49-7u-z6Y">
-                                <rect key="frame" x="0.0" y="1133" width="1024" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Main Menu"/>
-                                <connections>
-                                    <action selector="mainMenu:" destination="Yd4-vu-EKd" eventType="touchUpInside" id="OhW-qU-mry"/>
-                                    <segue destination="DeP-hp-0m3" kind="presentation" identifier="MainMenuSegue" id="xU0-yA-bT6"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HC8-X6-Jj4">
+                                <rect key="frame" x="0.0" y="2" width="1024" height="1366"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5g-4R-QCB">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="455.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvF-HP-1yR">
+                                        <rect key="frame" x="0.0" y="455.5" width="1024" height="455"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <state key="normal" title="Play Again"/>
+                                        <connections>
+                                            <action selector="newGame:" destination="Yd4-vu-EKd" eventType="touchUpInside" id="26M-V9-Xnb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b49-7u-z6Y">
+                                        <rect key="frame" x="0.0" y="910.5" width="1024" height="455.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <state key="normal" title="Main Menu"/>
+                                        <connections>
+                                            <action selector="mainMenu:" destination="Yd4-vu-EKd" eventType="touchUpInside" id="OhW-qU-mry"/>
+                                            <segue destination="DeP-hp-0m3" kind="presentation" identifier="MainMenuSegue" id="xU0-yA-bT6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PsV-cc-6cN" firstAttribute="trailing" secondItem="S5g-4R-QCB" secondAttribute="trailing" constant="10" id="7MQ-8Q-BYP"/>
-                            <constraint firstItem="b49-7u-z6Y" firstAttribute="leading" secondItem="PsV-cc-6cN" secondAttribute="leading" id="Dcy-b2-esQ"/>
-                            <constraint firstItem="S5g-4R-QCB" firstAttribute="leading" secondItem="PsV-cc-6cN" secondAttribute="leading" constant="10" id="MHn-gg-U2W"/>
-                            <constraint firstItem="b49-7u-z6Y" firstAttribute="trailing" secondItem="PsV-cc-6cN" secondAttribute="trailing" id="Qim-Tm-uPm"/>
-                            <constraint firstItem="S5g-4R-QCB" firstAttribute="top" secondItem="PsV-cc-6cN" secondAttribute="top" constant="288" id="Wbx-r8-VfB"/>
-                            <constraint firstItem="kvF-HP-1yR" firstAttribute="leading" secondItem="PsV-cc-6cN" secondAttribute="leading" id="X9U-ES-jl9"/>
-                            <constraint firstItem="kvF-HP-1yR" firstAttribute="top" secondItem="S5g-4R-QCB" secondAttribute="bottom" constant="8" id="c5q-HX-cuj"/>
-                            <constraint firstItem="kvF-HP-1yR" firstAttribute="trailing" secondItem="PsV-cc-6cN" secondAttribute="trailing" id="m4c-up-aot"/>
-                            <constraint firstItem="PsV-cc-6cN" firstAttribute="bottom" secondItem="S5g-4R-QCB" secondAttribute="bottom" constant="308" id="mo4-U9-hBg"/>
-                            <constraint firstItem="b49-7u-z6Y" firstAttribute="top" secondItem="kvF-HP-1yR" secondAttribute="bottom" constant="45" id="wzE-3w-fut"/>
+                            <constraint firstItem="HC8-X6-Jj4" firstAttribute="width" secondItem="02N-aA-HIN" secondAttribute="width" id="4Ob-OJ-eC3"/>
+                            <constraint firstItem="HC8-X6-Jj4" firstAttribute="centerY" secondItem="PsV-cc-6cN" secondAttribute="centerY" id="I8y-i0-6FA"/>
+                            <constraint firstItem="HC8-X6-Jj4" firstAttribute="height" secondItem="02N-aA-HIN" secondAttribute="height" id="a7n-ge-63O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PsV-cc-6cN"/>
                     </view>
@@ -234,11 +232,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMu-eb-sRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611.594202898551" y="30.978260869565219"/>
+            <point key="canvasLocation" x="2611.5234375" y="30.746705710102486"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Um-KH-qzg"/>
+        <segue reference="SgB-nN-Wps"/>
         <segue reference="xU0-yA-bT6"/>
     </inferredMetricsTieBreakers>
 </document>
