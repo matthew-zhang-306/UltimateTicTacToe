@@ -10,9 +10,10 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-
 class GameViewController: UIViewController
 {
+    let ref = Database.database().reference()
+    
     var board = Board()
     var bigBoard = BigBoard()
     
