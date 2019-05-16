@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nqs-an-REA">
-    <device id="retina5_5" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,20 +15,20 @@
             <objects>
                 <viewController id="DeP-hp-0m3" customClass="TitleViewController" customModule="UltimateTicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l9U-2E-iVD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fak-T3-T0L">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimate Tic-Tac-Toe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-QF-h10">
-                                        <rect key="frame" x="40.333333333333343" y="0.0" width="333.66666666666663" height="414"/>
+                                        <rect key="frame" x="114.5" y="0.0" width="539.5" height="408"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="62"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-BF-gwz">
-                                        <rect key="frame" x="163.66666666666666" y="414" width="87" height="195.66666666666663"/>
+                                        <rect key="frame" x="340.5" y="408" width="87" height="386.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
@@ -36,7 +36,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adx-Ac-Wbw">
-                                        <rect key="frame" x="153" y="609.66666666666663" width="108" height="106.33333333333337"/>
+                                        <rect key="frame" x="330" y="794.5" width="108" height="209.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="How to Play"/>
                                         <connections>
@@ -66,7 +66,7 @@
             <objects>
                 <navigationController id="nqs-an-REA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cQg-SY-RaG">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -82,14 +82,14 @@
             <objects>
                 <viewController id="9Nf-sg-5Ef" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uss-Vw-CZz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W1Z-jd-aZz">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-a7-SMn">
-                                        <rect key="frame" x="59.666666666666657" y="0.0" width="295" height="358"/>
+                                        <rect key="frame" x="236.5" y="0.0" width="295" height="502"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="One Device"/>
                                         <connections>
@@ -97,7 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRf-Ae-aSf">
-                                        <rect key="frame" x="46.666666666666657" y="358" width="321" height="358"/>
+                                        <rect key="frame" x="223.5" y="502" width="321" height="502"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                         <state key="normal" title="Two Devices"/>
                                     </button>
@@ -126,19 +126,20 @@
             <objects>
                 <viewController id="qUB-iY-rtF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nb9-Ih-oDm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kf-oj-0js">
-                                <rect key="frame" x="249" y="111" width="582" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kf-oj-0js">
+                                <rect key="frame" x="0.0" y="217" width="834" height="137"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="114"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-bY-hZm">
-                                <rect key="frame" x="141" y="351" width="798" height="642"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-bY-hZm">
+                                <rect key="frame" x="0.0" y="362" width="834" height="750"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="750" id="nSn-cI-SiB"/>
+                                </constraints>
                                 <string key="text">In Ultimate Tic-Tac-Toe, you play on a 3x3 grid of 3x3 grids.  The objective is to get three-in-a-row on the big board.  To claim a space on the big board, you must win the tic-tac-toe game in that space.  Additionally, the position of the previous move determines the subboard on which the next move has to be made.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
@@ -146,19 +147,27 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FeA-bY-hZm" firstAttribute="bottom" secondItem="3ao-ua-bf1" secondAttribute="bottom" id="1Tr-c3-zHq"/>
+                            <constraint firstItem="FeA-bY-hZm" firstAttribute="top" secondItem="1Kf-oj-0js" secondAttribute="bottom" constant="8" symbolic="YES" id="1gL-un-Tfi"/>
+                            <constraint firstAttribute="trailing" secondItem="FeA-bY-hZm" secondAttribute="trailing" id="NwQ-6c-kQk"/>
+                            <constraint firstItem="FeA-bY-hZm" firstAttribute="leading" secondItem="nb9-Ih-oDm" secondAttribute="leading" id="XRw-dK-q8P"/>
+                            <constraint firstItem="1Kf-oj-0js" firstAttribute="trailing" secondItem="FeA-bY-hZm" secondAttribute="trailing" id="sHb-dU-ffE"/>
+                            <constraint firstItem="1Kf-oj-0js" firstAttribute="leading" secondItem="FeA-bY-hZm" secondAttribute="leading" id="tIf-4f-AFI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3ao-ua-bf1"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAE-pb-L2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-628.125" y="750.65885797950216"/>
+            <point key="canvasLocation" x="-628.125" y="750.5859375"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="UltimateTicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -176,17 +185,17 @@
             <objects>
                 <viewController title="Win Screen" id="Yd4-vu-EKd" customClass="WinScreenViewController" customModule="UltimateTicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="02N-aA-HIN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5g-4R-QCB">
-                                <rect key="frame" x="10" y="308" width="394" height="120"/>
+                                <rect key="frame" x="10" y="308" width="748" height="408"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvF-HP-1yR">
-                                <rect key="frame" x="0.0" y="436" width="414" height="42"/>
+                                <rect key="frame" x="0.0" y="724" width="768" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Play Again"/>
                                 <connections>
@@ -194,7 +203,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b49-7u-z6Y">
-                                <rect key="frame" x="0.0" y="523" width="414" height="36"/>
+                                <rect key="frame" x="0.0" y="811" width="768" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Main Menu"/>
                                 <connections>
@@ -229,7 +238,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SgB-nN-Wps"/>
+        <segue reference="FXa-fd-YNO"/>
+        <segue reference="2Um-KH-qzg"/>
         <segue reference="xU0-yA-bT6"/>
     </inferredMetricsTieBreakers>
 </document>
