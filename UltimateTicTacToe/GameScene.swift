@@ -14,6 +14,8 @@ class GameScene: SKScene {
     var x = SKSpriteNode(imageNamed: "X")
     var xTwo = SKSpriteNode(imageNamed: "X")
     var oTwo = SKSpriteNode(imageNamed: "O")
+    var oThree = SKSpriteNode(imageNamed: "O")
+    var xThree = SKSpriteNode(imageNamed: "X")
     var xfirstLoop = 0
     var xsecondLoop = 0
     var xlooped = 0
@@ -28,7 +30,8 @@ class GameScene: SKScene {
     var oThing = thing(posX: 0, posY: 0, array: [])
     var xTwoThing = thing(posX: 0, posY: 0, array: [])
     var oTwoThing = thing(posX: 0, posY: 0, array: [])
-
+    var xThreeThing = thing(posX: 0, posY: 0, array: [])
+    var oThreeThing = thing(posX: 0, posY: 0, array: [])
     var looper = 0
     
     override func didMove(to view: SKView) {
@@ -39,7 +42,8 @@ class GameScene: SKScene {
         xTwoThing = weBuild(shape: xTwo)
         oThing = weBuild(shape: o)
         xThing = weBuild(shape: x)
-        
+        xThreeThing = weBuild(shape: xThree)
+        oThreeThing = weBuild(shape: oThree)
         //500 is around the top
         
         
@@ -129,7 +133,7 @@ class GameScene: SKScene {
     func randomSpeed() -> Int
     {
        
-        return (Int(arc4random_uniform(UInt32(10))))+1
+        return (Int(arc4random_uniform(UInt32(5))))+1
     }
     
     func newY() -> Int
@@ -197,6 +201,8 @@ class GameScene: SKScene {
         movedown(item: o, theItem: oThing)
         movedown(item: xTwo, theItem: xTwoThing)
         movedown(item: oTwo, theItem: oTwoThing)
+        movedown(item: xThree, theItem: xThreeThing)
+        movedown(item: oThree, theItem: oThreeThing)
 
     }
 }
