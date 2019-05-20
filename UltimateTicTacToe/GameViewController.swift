@@ -78,6 +78,14 @@ class GameViewController: UIViewController
         if(turnTime == 0)
         {
             turnTime = 30
+            if currentPlayer == "X"
+            {
+                currentPlayer = "O"
+            }
+            else
+            {
+                currentPlayer = "X"
+            }
         }
         timerLabel.text = String(turnTime)
     }
@@ -160,6 +168,7 @@ class GameViewController: UIViewController
         // Set button state
         sender.setImage(UIImage(named: "\(currentPlayer)"), for: .normal)
         sender.setTitle(currentPlayer, for: .normal)
+        turnTime = 30
         
         if(bigBoard.grid[boardY][boardX].winner == currentPlayer)
         {
