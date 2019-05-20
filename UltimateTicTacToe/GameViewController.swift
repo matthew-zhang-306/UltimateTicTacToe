@@ -10,12 +10,12 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-
 class GameViewController: UIViewController
 {
     var board = Board()
     var bigBoard = BigBoard()
     
+    let ticTacToeService = UltimateTicTacToeService()
     
     let screenSize: CGRect = UIScreen.main.bounds
     var screenWidth: Int!
@@ -28,6 +28,7 @@ class GameViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        ticTacToeService.delegate = self as? UltimateTicTacToeDelegate
         
         if let view = self.view as! SKView?
         {
@@ -160,10 +161,12 @@ class GameViewController: UIViewController
         // Switch players
         if currentPlayer == "X"
         {
+            ticTacToeService.send(colorName: "O")
             currentPlayer = "O"
         }
         else
         {
+            ticTacToeService.send(colorName: "X")
             currentPlayer = "X"
         }
     }
@@ -227,4 +230,27 @@ class GameViewController: UIViewController
         return true
     }
 
+}
+
+extension GameViewController : UltimateTicTacToeDelegate {
+    
+    func connectedDevicesChanged(manager: UltimateTicTacToeService, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            self.connectionsLabel.text = "Connections: \(connectedDevices)"
+        }
+    }
+    
+    func colorChanged(manager: UltimateTicTacToeService, colorString: String) {
+        OperationQueue.main.addOperation {
+            switch colorString {
+            case "X":
+                self.currentPlayer = "O"
+            case "O":
+                self.currentPlayer = "X"
+            default:
+                NSLog("%@", "Unknown string value: \(colorString)")
+            }
+        }
+    }
+    
 }
