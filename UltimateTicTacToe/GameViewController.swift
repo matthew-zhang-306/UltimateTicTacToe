@@ -78,7 +78,7 @@ class GameViewController: UIViewController
         smallBoardDraw(buttons: buttons)
         setButtonActivation(x: 0, y: 0)
         
-        timerLabel.text = String("Time left for \(currentPlayer)'s turn: \(turnTime)")
+        timerLabel.text = String("\(turnTime/10)")
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(Timer) in self.updateTime()})
         
     }
@@ -91,7 +91,7 @@ class GameViewController: UIViewController
             turnTime = timeLimit
             playRandomTurn()
         }
-        timerLabel.text = String("Time left for \(currentPlayer)'s turn: \(turnTime/10)")
+        timerLabel.text = "\(turnTime/10)"
     }
     
     //Plays turn when time runs out
