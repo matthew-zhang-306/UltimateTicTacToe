@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nqs-an-REA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nqs-an-REA">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimate Tic-Tac-Toe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-QF-h10">
-                                        <rect key="frame" x="40.333333333333343" y="0.0" width="333.66666666666663" height="291"/>
+                                        <rect key="frame" x="40.333333333333343" y="0.0" width="333.66666666666663" height="414"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="62"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-BF-gwz">
-                                        <rect key="frame" x="163.66666666666666" y="291" width="87" height="275.66666666666674"/>
+                                        <rect key="frame" x="163.66666666666666" y="414" width="87" height="195.66666666666663"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
@@ -37,7 +36,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adx-Ac-Wbw">
-                                        <rect key="frame" x="153" y="566.66666666666663" width="108" height="149.33333333333337"/>
+                                        <rect key="frame" x="153" y="609.66666666666663" width="108" height="106.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="How to Play"/>
                                         <connections>
@@ -180,7 +179,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2y-aG-oGd">
-                                        <rect key="frame" x="150.66666666666666" y="110.3333333333333" width="112.99999999999997" height="55.333333333333329"/>
+                                        <rect key="frame" x="150" y="110.3333333333333" width="114" height="55.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Play Again"/>
                                         <connections>
@@ -202,6 +201,12 @@
                                     <constraint firstItem="e2y-aG-oGd" firstAttribute="height" secondItem="L69-em-4kw" secondAttribute="height" multiplier="0.5" id="njj-dO-J1N"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J11-AG-pDO">
+                                <rect key="frame" x="170.33333333333334" y="40" width="73.666666666666657" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -210,8 +215,10 @@
                             <constraint firstItem="uit-iH-QIv" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="8wf-kt-eER"/>
                             <constraint firstItem="uit-iH-QIv" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" id="E9v-IN-hLz"/>
                             <constraint firstItem="haz-Oq-pp5" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" id="FZD-BY-JMy"/>
+                            <constraint firstItem="J11-AG-pDO" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="HAK-61-KMT"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="uit-iH-QIv" secondAttribute="trailing" id="hN2-4r-1Kq"/>
                             <constraint firstItem="haz-Oq-pp5" firstAttribute="height" secondItem="3se-qz-xqx" secondAttribute="height" id="jck-jg-XgC"/>
+                            <constraint firstItem="J11-AG-pDO" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="20" id="mmI-mj-e68"/>
                             <constraint firstItem="uit-iH-QIv" firstAttribute="height" secondItem="3se-qz-xqx" secondAttribute="height" multiplier="0.3" id="qw7-am-dE1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -219,6 +226,7 @@
                     <connections>
                         <outlet property="backToMenuButton" destination="bKE-Sy-uBf" id="t0o-7Y-0Q9"/>
                         <outlet property="playAgainButton" destination="e2y-aG-oGd" id="t4v-A5-jRv"/>
+                        <outlet property="timerLabel" destination="J11-AG-pDO" id="Rjx-dJ-cpf"/>
                         <outlet property="winnerBackground" destination="haz-Oq-pp5" id="MwS-bm-TCn"/>
                         <outlet property="winnerLabel" destination="L69-em-4kw" id="pd8-Br-XMF"/>
                         <outlet property="winnerObjects" destination="uit-iH-QIv" id="3fV-Bw-nTo"/>
@@ -289,7 +297,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FXa-fd-YNO"/>
         <segue reference="SgB-nN-Wps"/>
         <segue reference="vmF-NN-8rg"/>
         <segue reference="dbU-gV-2dA"/>

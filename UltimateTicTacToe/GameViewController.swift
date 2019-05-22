@@ -202,10 +202,6 @@ class GameViewController: UIViewController
             self.view.bringSubview(toFront: winnerViews[boardY][boardX])
         }
         
-        if(bigBoard.winner == currentPlayer || bigBoard.numBoardsFull == 9)
-        {
-            performSegue(withIdentifier: "WinScreenSegue", sender: self)
-        }
         
         // Set activation of buttons
         setButtonActivation(x: cellX, y: cellY)
@@ -310,7 +306,7 @@ class GameViewController: UIViewController
         return true
     }
     
-    /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let destination = segue.destination as? WinScreenViewController
@@ -318,7 +314,7 @@ class GameViewController: UIViewController
             destination.winner = self.bigBoard.winner
         }
     }
-     */
+    
     
     func newGame()
     {
