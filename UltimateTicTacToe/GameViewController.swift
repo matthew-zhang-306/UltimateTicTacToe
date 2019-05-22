@@ -96,6 +96,7 @@ class GameViewController: UIViewController
                     //1 in 9 chance to choose that button
                     if(Int.random(in: 0...8) == 0)
                     {
+                        
                         buttonTest(buttons[row][col])
                         return true
                     }
