@@ -91,7 +91,8 @@ class BigBoard
         }
         
         
-        if grid[y][x].isFull {
+        if grid[y][x].isFull || grid[y][x].winner != " "
+        {
             numBoardsFull += 1
         }
         

@@ -18,7 +18,8 @@ class GameViewController: UIViewController
     var board = Board()
     var bigBoard = BigBoard()
     
-    var turnTime = 30
+    let timeLimit = 310
+    var turnTime = 310
     
     let screenSize: CGRect = UIScreen.main.bounds
     var screenWidth: Int!
@@ -67,27 +68,41 @@ class GameViewController: UIViewController
         smallBoardDraw(buttons: buttons)
         setButtonActivation(x: 0, y: 0)
         
-        timerLabel.text = String(turnTime)
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(Timer) in self.updateTime()})
+        timerLabel.text = String("Time left for \(currentPlayer)'s turn: \(turnTime)")
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(Timer) in self.updateTime()})
         
     }
     
     func updateTime()
     {
         turnTime -= 1
-        if(turnTime == 0)
+        if(turnTime <= 0)
         {
-            turnTime = 30
-            if currentPlayer == "X"
+            turnTime = timeLimit
+            playRandomTurn()
+        }
+        timerLabel.text = String("Time left for \(currentPlayer)'s turn: \(turnTime/10)")
+    }
+    
+    //Plays turn when time runs out
+    func playRandomTurn() -> Bool
+    {
+        for row in 0...8
+        {
+            for col in 0...8
             {
-                currentPlayer = "O"
-            }
-            else
-            {
-                currentPlayer = "X"
+                if(buttons[row][col].isEnabled)
+                {
+                    //1 in 9 chance to choose that button
+                    if(Int.random(in: 0...8) == 0)
+                    {
+                        buttonTest(buttons[row][col])
+                        return true
+                    }
+                }
             }
         }
-        timerLabel.text = String(turnTime)
+        return playRandomTurn()
     }
     
     func smallBoardDraw(buttons: [[UIButton]])
@@ -150,7 +165,7 @@ class GameViewController: UIViewController
         return imageViews
     }
     
-    
+    //Plays turn when place is tapped
     @IBAction func buttonTest(_ sender: UIButton)
     {
         guard bigBoard.winner == " " else { return }
@@ -168,7 +183,7 @@ class GameViewController: UIViewController
         // Set button state
         sender.setImage(UIImage(named: "\(currentPlayer)"), for: .normal)
         sender.setTitle(currentPlayer, for: .normal)
-        turnTime = 30
+        turnTime = timeLimit
         
         if(bigBoard.grid[boardY][boardX].winner == currentPlayer)
         {
@@ -176,7 +191,7 @@ class GameViewController: UIViewController
             self.view.bringSubview(toFront: winnerViews[boardY][boardX])
         }
         
-        if(bigBoard.winner == currentPlayer)
+        if(bigBoard.winner == currentPlayer || bigBoard.numBoardsFull == 9)
         {
             performSegue(withIdentifier: "WinScreenSegue", sender: self)
         }
@@ -185,7 +200,8 @@ class GameViewController: UIViewController
         setButtonActivation(x: cellX, y: cellY)
         
         // Check for winner
-        if bigBoard.winner == currentPlayer {
+        if bigBoard.winner == currentPlayer
+        {
             let winRect = UIButton(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
             
             winRect.isEnabled = false
@@ -211,7 +227,8 @@ class GameViewController: UIViewController
         
     }
     
-    func findButton(_ sender: UIButton) -> CGPoint {
+    func findButton(_ sender: UIButton) -> CGPoint
+    {
         for y in 0...8 {
             for x in 0...8 {
                 if buttons[y][x] == sender {

@@ -19,7 +19,14 @@ class WinScreenViewController: UIViewController
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        WinnerLabel.text = "\(winner!) won the game!"
+        if(winner == " ")
+        {
+            WinnerLabel.text = "It's a draw!"
+        }
+        else
+        {
+            WinnerLabel.text = "\(winner!) won the game!"
+        }
     }
     
     @IBAction func newGame(_ sender: Any)
