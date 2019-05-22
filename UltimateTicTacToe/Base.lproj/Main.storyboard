@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nqs-an-REA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nqs-an-REA">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,13 +23,13 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimate Tic-Tac-Toe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-QF-h10">
-                                        <rect key="frame" x="40.333333333333343" y="0.0" width="333.66666666666663" height="414"/>
+                                        <rect key="frame" x="40.333333333333343" y="0.0" width="333.66666666666663" height="291"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="62"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-BF-gwz">
-                                        <rect key="frame" x="163.66666666666666" y="414" width="87" height="195.66666666666663"/>
+                                        <rect key="frame" x="163.66666666666666" y="291" width="87" height="275.66666666666674"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         <state key="normal" title="Play"/>
                                         <connections>
@@ -36,7 +37,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adx-Ac-Wbw">
-                                        <rect key="frame" x="153" y="609.66666666666663" width="108" height="106.33333333333337"/>
+                                        <rect key="frame" x="153" y="566.66666666666663" width="108" height="149.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="How to Play"/>
                                         <connections>
@@ -161,23 +162,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPc-GA-UMJ">
-                                <rect key="frame" x="148.66666666666666" y="20" width="116.99999999999997" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haz-Oq-pp5">
+                                <rect key="frame" x="0.0" y="10" width="414" height="736"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49628631161971831" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uit-iH-QIv">
+                                <rect key="frame" x="0.0" y="267.66666666666669" width="414" height="220.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L69-em-4kw">
+                                        <rect key="frame" x="156.66666666666666" y="0.0" width="100.66666666666666" height="110.33333333333333"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2y-aG-oGd">
+                                        <rect key="frame" x="150.66666666666666" y="110.3333333333333" width="112.99999999999997" height="55.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Play Again"/>
+                                        <connections>
+                                            <action selector="playAgainPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="BbN-SP-acY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKE-Sy-uBf">
+                                        <rect key="frame" x="158.66666666666666" y="165.66666666666663" width="97" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Main Menu"/>
+                                        <connections>
+                                            <action selector="backToMenuPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="WKU-DT-wEq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bKE-Sy-uBf" firstAttribute="height" secondItem="e2y-aG-oGd" secondAttribute="height" id="gQ2-Ft-yZE"/>
+                                    <constraint firstItem="e2y-aG-oGd" firstAttribute="height" secondItem="L69-em-4kw" secondAttribute="height" multiplier="0.5" id="njj-dO-J1N"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GPc-GA-UMJ" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="iat-5Z-XXH"/>
-                            <constraint firstItem="GPc-GA-UMJ" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="lvY-h7-qai"/>
+                            <constraint firstItem="haz-Oq-pp5" firstAttribute="width" secondItem="3se-qz-xqx" secondAttribute="width" id="0XX-ra-CAl"/>
+                            <constraint firstItem="haz-Oq-pp5" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="4FU-Uj-d0j"/>
+                            <constraint firstItem="uit-iH-QIv" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="8wf-kt-eER"/>
+                            <constraint firstItem="uit-iH-QIv" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" id="E9v-IN-hLz"/>
+                            <constraint firstItem="haz-Oq-pp5" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" id="FZD-BY-JMy"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="uit-iH-QIv" secondAttribute="trailing" id="hN2-4r-1Kq"/>
+                            <constraint firstItem="haz-Oq-pp5" firstAttribute="height" secondItem="3se-qz-xqx" secondAttribute="height" id="jck-jg-XgC"/>
+                            <constraint firstItem="uit-iH-QIv" firstAttribute="height" secondItem="3se-qz-xqx" secondAttribute="height" multiplier="0.3" id="qw7-am-dE1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
-                        <outlet property="timerLabel" destination="GPc-GA-UMJ" id="i8J-hj-Dq6"/>
+                        <outlet property="backToMenuButton" destination="bKE-Sy-uBf" id="t0o-7Y-0Q9"/>
+                        <outlet property="playAgainButton" destination="e2y-aG-oGd" id="t4v-A5-jRv"/>
+                        <outlet property="winnerBackground" destination="haz-Oq-pp5" id="MwS-bm-TCn"/>
+                        <outlet property="winnerLabel" destination="L69-em-4kw" id="pd8-Br-XMF"/>
+                        <outlet property="winnerObjects" destination="uit-iH-QIv" id="3fV-Bw-nTo"/>
                         <segue destination="Yd4-vu-EKd" kind="presentation" identifier="WinScreenSegue" id="FXa-fd-YNO"/>
+                        <segue destination="9Nf-sg-5Ef" kind="show" identifier="ReplaySegue" id="vmF-NN-8rg"/>
+                        <segue destination="DeP-hp-0m3" kind="show" identifier="MainMenuSegue" id="dbU-gV-2dA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -242,7 +289,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="FXa-fd-YNO"/>
         <segue reference="SgB-nN-Wps"/>
-        <segue reference="xU0-yA-bT6"/>
+        <segue reference="vmF-NN-8rg"/>
+        <segue reference="dbU-gV-2dA"/>
     </inferredMetricsTieBreakers>
 </document>

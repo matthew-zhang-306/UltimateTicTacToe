@@ -18,6 +18,11 @@ class GameViewController: UIViewController
     var board = Board()
     var bigBoard = BigBoard()
     
+    @IBOutlet weak var winnerBackground: UIButton!
+    @IBOutlet weak var winnerObjects: UIStackView!
+    @IBOutlet weak var winnerLabel: UILabel!
+    @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var backToMenuButton: UIButton!
     let timeLimit = 310
     var turnTime = 310
     
@@ -35,6 +40,11 @@ class GameViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        winnerBackground.isHidden = true
+        winnerLabel.isHidden = true
+        playAgainButton.isHidden = true
+        backToMenuButton.isHidden = true
         
         if let view = self.view as! SKView?
         {
@@ -203,16 +213,18 @@ class GameViewController: UIViewController
         // Check for winner
         if bigBoard.winner == currentPlayer
         {
-            let winRect = UIButton(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+            winnerBackground.isHidden = false
+            winnerLabel.isHidden = false
+            playAgainButton.isHidden = false
+            backToMenuButton.isHidden = false
             
-            winRect.isEnabled = false
-            winRect.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-            winRect.setTitle("\(currentPlayer) wins!", for: .normal)
-            winRect.setTitleColor(.white, for: .normal)
-            winRect.titleLabel?.font = .systemFont(ofSize: 60)
-            winRect.titleLabel?.textAlignment = .center
+            winnerLabel.text = "\(currentPlayer) wins!"
             
-            self.view.addSubview(winRect)
+            self.view.bringSubview(toFront: winnerBackground)
+            self.view.bringSubview(toFront: winnerObjects)
+            self.view.bringSubview(toFront: winnerLabel)
+            self.view.bringSubview(toFront: playAgainButton)
+            self.view.bringSubview(toFront: backToMenuButton)
         }
         else {
             // Switch players
@@ -298,6 +310,7 @@ class GameViewController: UIViewController
         return true
     }
     
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let destination = segue.destination as? WinScreenViewController
@@ -305,6 +318,7 @@ class GameViewController: UIViewController
             destination.winner = self.bigBoard.winner
         }
     }
+     */
     
     func newGame()
     {
@@ -313,4 +327,13 @@ class GameViewController: UIViewController
         currentPlayer = "X"
         setButtonActivation(x: 0, y: 0)
     }
+    
+    
+    @IBAction func playAgainPressed(_ sender: Any) {
+        performSegue(withIdentifier: "ReplaySegue", sender: self)
+    }
+    @IBAction func backToMenuPressed(_ sender: Any) {
+        performSegue(withIdentifier: "MainMenuSegue", sender: self)
+    }
+    
 }
